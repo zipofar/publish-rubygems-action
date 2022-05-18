@@ -10,14 +10,14 @@ cat << EOF > ~/.gem/credentials
 :rubygems_api_key: ${RUBYGEMS_API_KEY}
 EOF
 
+user_command="${USER_COMMAND}"
+eval $user_command
+
 chmod 0600 ~/.gem/credentials
 set -x
 
 echo "Installing dependencies..."
 bundle install > /dev/null
-
-user_command="${USER_COMMAND}"
-eval $user_command
 
 echo "Running gem release task..."
 release_command="${RELEASE_COMMAND:-rake release}"
