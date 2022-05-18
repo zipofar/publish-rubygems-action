@@ -12,6 +12,7 @@ EOF
 
 user_command="${USER_COMMAND}"
 eval $user_command
+ ls -la
 
 chmod 0600 ~/.gem/credentials
 set -x
