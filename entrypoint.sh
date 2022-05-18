@@ -16,6 +16,9 @@ set -x
 echo "Installing dependencies..."
 bundle install > /dev/null
 
+user_command="${USER_COMMAND}"
+eval $user_command
+
 echo "Running gem release task..."
 release_command="${RELEASE_COMMAND:-rake release}"
 exec $release_command
